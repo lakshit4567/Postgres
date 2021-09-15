@@ -1,1 +1,3 @@
-web: gunicorn apexindustries.wsgi
+release: python manage.py migrate
+web: daphne apexindustries.asgi:application --port $PORT --bind 0.0.0.0
+worker: python manage.py runworker channel_layer

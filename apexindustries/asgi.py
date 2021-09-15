@@ -10,6 +10,7 @@ https://docs.djangoproject.com/en/3.2/howto/deployment/asgi/
 
 
 import os
+import channels
 import django
 from django.core.asgi import get_asgi_application
 from channels.routing import ProtocolTypeRouter, URLRouter
@@ -19,7 +20,7 @@ from django.urls import path
 from apex.consumer import *
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'apexindustries.settings')
-django.setup()
+django.setup()  
 application = get_asgi_application()
 
 ws_patterns = [
@@ -28,5 +29,6 @@ ws_patterns = [
 ]
 
 application = ProtocolTypeRouter({
-    'websocket' : AuthMiddlewareStack(URLRouter(ws_patterns))
+    "http": get_asgi_application(), 
+    'websocket' : AuthMiddlewareStack(URLRouter(ws_patterns)),
 })

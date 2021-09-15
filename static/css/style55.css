@@ -139,6 +139,7 @@ a:focus {
   border-bottom: 1px solid var(--base-white) !important;
   border-right: 2px solid var(--base-white) !important;
   font-size: 0.87em;
+  position: sticky;
 }
 
 #sidebar.active {
