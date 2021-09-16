@@ -12,10 +12,14 @@ https://docs.djangoproject.com/en/3.2/howto/deployment/asgi/
 import os
 import channels
 import django
+from channels.http import AsgiHandler
+
 from django.core.asgi import get_asgi_application
 from channels.routing import ProtocolTypeRouter, URLRouter
 from channels.auth import AuthMiddlewareStack
 from django.urls import path
+# from django.core.asgi import get_asgi_application
+
 
 from apex.consumer import *
 
@@ -29,6 +33,6 @@ ws_patterns = [
 ]
 
 application = ProtocolTypeRouter({
-    "http": get_asgi_application(), 
+    # "http": get_asgi_application(), 
     'websocket' : AuthMiddlewareStack(URLRouter(ws_patterns)),
 })

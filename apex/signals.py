@@ -1,5 +1,3 @@
-
-
 from re import S, sub
 from typing import Counter
 from django.db.models.signals import post_save,post_delete,pre_delete
@@ -41,7 +39,7 @@ def register(sender,instance,created, **kwargs):
         my_time = str(datetime.datetime.now())[10:16].replace(":",'')
         
         hour = int(my_time[0:2])
-       
+
         min = my_time[2::]
         
         t = int(str(hour)+str(min))
@@ -280,6 +278,7 @@ def sale(sender,instance,created,**kwargs):
                 ufs.save()
                 
                 logsave.logg(regid=s_register_id,tbid=UF_id,operation='Entry Updated',tname='Un-Finished Material Stock')
+
 
 @receiver(post_save, sender= EssentialItemUsePerDay)
 def essentialitem(sender,instance,created,**kwargs):

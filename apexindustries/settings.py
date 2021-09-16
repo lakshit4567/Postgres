@@ -101,16 +101,16 @@ CHANNEL_LAYERS = {
     },
 }
 
+# CACHES = {
+#     'default': {
+#         'BACKEND': "channels_redis.cache.RedisChannelLayer",
+#         'LOCATION': [os.environ.get('REDIS_URL', 'redis://localhost:6379')],
+#         'OPTIONS': {
+#             'CLIENT_CLASS' : 'django_redis.client.DefaultClient'
+#         }
+#     }
+# }
 
-CACHES = {
-    'default': {
-        'BACKEND': "channels_redis.cache.RedisChannelLayer",
-        'LOCATION': [os.environ.get('REDIS_URL', 'redis://localhost:6379')],
-        'OPTIONS': {
-            'CLIENT_CLASS' : 'django_redis.client.DefaultClient'
-        }
-    }
-}
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 AUTH_PASSWORD_VALIDATORS = [
@@ -170,4 +170,4 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'teamdwkaustubh@gmail.com'
 EMAIL_HOST_PASSWORD = 'kvxuprnermfjkumq'
-DISABLE_COLLECTSTATIC
+
