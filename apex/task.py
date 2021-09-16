@@ -12,7 +12,10 @@ import json
 import requests
 from django.conf import settings
 
-#run code is: celery -A apexindustries.celery worker --loglevel=info --pool=solo,celery -A apexindustries beat -l info ,celery -A apexindustries purge
+#run code is: celery -A apexindustries.celery worker --loglevel=info --pool=solo,
+# celery -A apexindustries beat -l info ,
+# celery -A apexindustries purge
+
 @shared_task
 def timmer():
     with transaction.atomic():
