@@ -143,14 +143,15 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
-# '''
-# if DEBUG:
-#     STATICFILES_DIRS = [os.path.join(BASE_DIR, 'apex/static')]
+'''
+
+# if DEBUG == True:
+#     STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 # else:
-#     STATIC_ROOT = os.path.join(BASE_DIR, 'apex/static')
+#     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR,"apex/static")]
+STATICFILES_DIRS = [os.path.join(BASE_DIR,"static")]
 STATIC_ROOT = os.path.join(BASE_DIR,"staticfiles")
 
 

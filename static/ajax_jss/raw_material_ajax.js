@@ -1,4 +1,4 @@
-
+console.log("here in raw material")
 // toast function
 const alert_msg = (head, msg, boot_class) => {
   return `        
@@ -144,15 +144,17 @@ $("#tbody").on("click", ".btn-del", function () {
   console.log(id);
   mydata = { sid: id, csrfmiddlewaretoken: csr };
   mythis = this;
+  console.log(mythis);
   $.ajax({
     url: "raw_delete",
     method: "POST",
     data: mydata,
     success: function (data) {
+      console.log(data.status)
       if (data.status == 1) {
+        console.log("in success")
         $("#toast_id").html(
-          alert_msg("Success!", "Entry Deleted", "toast-div-danger")
-        );
+          alert_msg("Success!", "Entry Deleted", "toast-div-danger"));
         $(mythis).closest("tr").fadeOut();
       }
     },

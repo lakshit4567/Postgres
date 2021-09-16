@@ -16,31 +16,31 @@
                         <div class="brand-wrapper">
                             <img src="{% static 'images/profile.png' %}" alt="logo" class="logo">
                             
-                           
+                        
                         </div>
                         {% if messages %}
                         {% for message in messages %}
                         <div class="alert alert-{{ message.tags }} msgalert" >
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
-                           </button>
-                             <p>{{message}}</p>
+                            </button>
+                            <p>{{message}}</p>
                         </div>
                         {% endfor %}
                         {% endif %}
                         <p class="login-card-description">Sign into your account</p>
                         <form method="POST">
                             {% csrf_token %}
-                            <div class="form-group">
-                                <label for="email" class="sr-only">Email</label>
-                                <input type="text" name="email" id="email" class="form-control"
-                                    placeholder="Email address" required>
-                            </div>
-                            <div class="form-group mb-4">
-                                <label for="password" class="sr-only">Password</label>
-                                <input type="password" name="password" id="password" class="form-control"
-                                    placeholder="***********" required>
-                            </div>
+                            <fieldset class="form-group">
+                                    <label for="email" class="sr-only">Email</label>
+                                    <input type="text" name="email" id="email" class="form-control"
+                                        placeholder="Email address" required>
+                                    <label for="password" class="sr-only">Password</label>
+                                    <input type="password" name="password" id="password" class="form-control"
+                                        placeholder="" required>
+                                    <i class="bi bi-eye-slash " id="togglePassword"
+                                        style="color: black; font-size:25px;position: relative; top: -60px; cursor: pointer;right: -86%; width:50px;"></i>
+                            </fieldset>
                             <input name="login" id="login" class="btn btn-block login-btn mb-4" type="submit"
                                 value="Login">
                         </form>
@@ -57,6 +57,18 @@
         </div>
         
     </div>
+<script type="text/javascript">
+    const togglePassword = document.querySelector('#togglePassword');
+    const password = document.querySelector('#password');
+    togglePassword.addEventListener('click', function (e) {
+        // toggle the type attribute
+        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+        password.setAttribute('type', type);
+        // toggle the eye / eye slash icon
+        this.classList.toggle('bi-eye');
 
+
+    });
+</script>
 </main>
 {% endblock %}

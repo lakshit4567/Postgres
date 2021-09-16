@@ -122,12 +122,16 @@
         console.log(id)
         mydata = { sid: id, csrfmiddlewaretoken: csr };
         mythis = this;
+        console.log(mythis);
+        console.log("here");
         $.ajax({
             url : "{% url 'raw_delete' %}",
             method: "POST",
             data: mydata,
             success : function(data) {
                 if (data.status==1){
+                    console.log(data)
+                    alert_msg("Deleted!", "danger")
                     $("#msg-raw").html('<div class="mt-2 text- alert alert-warning alert-dismissible fade show" role="alert">Successfully Deleted<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
                     $(mythis).closest("tr").fadeOut();
                 }

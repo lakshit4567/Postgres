@@ -577,8 +577,7 @@ def raw_save(request):
         s_weight = request.POST['sc_weight']
         raw_vendor = request.POST['raw_vendor']
         user = User.objects.get(id=request.user.id)
-        raw = rawMaterial(register=user, RM_Date=date, RM_Thickness=thickness, RM_Size=size, RM_Grade=grade, RM_coilWeight=weight,
-                          RM_scrapWeight=s_weight,Vendor =raw_vendor)
+        raw = rawMaterial(register=user, RM_Date=date, RM_Thickness=thickness, RM_Size=size, RM_Grade=grade, RM_coilWeight=weight, RM_scrapWeight=s_weight,Vendor =raw_vendor)
         raw.save()
         raw_save = rawMaterial.objects.values()
         raw_data1 = list(raw_save)
@@ -595,7 +594,7 @@ def raw_delete(request):
         raw_id = request.POST['sid']
         user = User.objects.get(id=request.user.id)
         logsave.logg(regid=user.id, tbid=raw_id,
-                     operation='Entry Deleted', tname='Raw Material')
+                    operation='Entry Deleted', tname='Raw Material')
         raw = rawMaterial.objects.get(id=raw_id)
         raw.delete()
         sc = Scrape.objects.get(t_id=raw_id)
@@ -616,8 +615,7 @@ def uf_save(request):
         fm_id = FMstock.objects.get(id=fmid)
         print(fm_id, 'fm_id')
         user = User.objects.get(id=request.user.id)
-        uf = UFMstock(UFM_date=date, UFM_Weight=weight,
-                      UFM_Quantity=quantity, register=user, FMid=fm_id)
+        uf = UFMstock(UFM_date=date, UFM_Weight=weight, UFM_Quantity=quantity, register=user, FMid=fm_id)
         uf.save()
         # print('error')
         uf_val = UFMstock.objects.values()

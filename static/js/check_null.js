@@ -1,5 +1,5 @@
 
-console.log("In js")
+console.log("In jssssss")
 
 $(".serach").on("click", function (e) {
   console.log($("#id_start_date")[0].value);
@@ -9,6 +9,6 @@ $(".serach").on("click", function (e) {
     console.log("value there");
   } else {
     e.preventDefault();
-    alert("Please select both the dates!");
+    alert("Please select Dates!");
   }
 });

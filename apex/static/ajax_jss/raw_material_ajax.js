@@ -1,4 +1,4 @@
-
+console.log("here in ajax raw material js")
 // toast function
 const alert_msg = (head, msg, boot_class) => {
   return `        
@@ -137,6 +137,7 @@ $("#btnsave").click("#post-form", function () {
     });
   }
 });
+
 $("#tbody").on("click", ".btn-del", function () {
   // console.log('button selected')
   let id = $(this).attr("data-sid");
